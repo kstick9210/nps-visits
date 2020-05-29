@@ -7,11 +7,11 @@ This app is a place to keep track of which National Parks you have visted and th
 -Placeholder-
 
 # Technologies Used
--HTML/EJS
--CSS
--JavaScript
--Express
--mongoDB/Mongoose
+- HTML/EJS
+- CSS
+- JavaScript
+- Express
+- mongoDB/Mongoose
 
 # Getting Started
 [Trello Board](https://trello.com/b/J6GvXYVN/project-2-nps-visits-tracker)
