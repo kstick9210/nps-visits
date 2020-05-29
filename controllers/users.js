@@ -4,8 +4,6 @@ module.exports = {
     index
 }
 
-function index (req, res, next) {
-    res.render('/users/index', {
-        user: req.user
-    })
-}
+// function index (req, res, next) {
+//     res.render('/', {title: 'Main Page', user: req.user})
+// }
