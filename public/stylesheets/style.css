@@ -10,21 +10,36 @@ a {
   color: #00B7FF;
 }
 
-nav {
+nav, footer {
   background-color: rgb(79, 92, 46);
   color: white;
   padding: 12px;
+}
+
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#logo {
-  height: 70px;
-}
+#logo { height: 70px; }
 
 .loginout {
   text-decoration: none;
   color: white;
   font-family: 'Acme', sans-serif;
+}
+
+footer {
+  text-align: center;
+  font-size: small;
+}
+
+footer > p > a {
+  text-decoration: none;
+}
+
+.gh { 
+  height: 20px;
+  padding-top: 3px;
 }
