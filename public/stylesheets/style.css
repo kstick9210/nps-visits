@@ -1,8 +1,30 @@
+* {
+  box-sizing: border-box;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
 }
 
 a {
   color: #00B7FF;
+}
+
+nav {
+  background-color: rgb(79, 92, 46);
+  color: white;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo {
+  height: 70px;
+}
+
+.loginout {
+  text-decoration: none;
+  color: white;
+  font-family: 'Acme', sans-serif;
 }
