@@ -18,14 +18,17 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Acme', sans-serif;
 }
 
-#logo { height: 70px; }
+#logo { height: 60px; }
+
+#large { font-size: 40px;}
 
 .loginout {
   text-decoration: none;
   color: white;
-  font-family: 'Acme', sans-serif;
+  
 }
 main {
   justify-items: center;
@@ -49,4 +52,18 @@ footer > p > a {
 .gh { 
   height: 20px;
   padding-top: 3px;
+}
+
+@media only screen and (min-width: 768px) {
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #logo { height: 70px;}
+
+  #large { font-size: 60px;}
+
+  .loginout { font-size: 20px;}
 }
