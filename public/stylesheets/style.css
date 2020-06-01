@@ -54,8 +54,18 @@ footer > p > a {
   padding-top: 3px;
 }
 
-.search {
-  width: 300px;
+#park-choices, button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+#park-choices { 
+  width: 350px;
+}
+
+button {
+  background-color: rgb(79, 92, 46);
+  color: white;
 }
 
 @media only screen and (min-width: 768px) {
