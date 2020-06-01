@@ -10,5 +10,5 @@ function index(req, res) {
 }
 
 function newVisit(req, res) {
-    res.render('new', {title: 'Add New Visit', user: req.user});
+    res.render('new', {title: 'Add New Visit', user: req.user, parkName: Visit.schema.path('parkName').enumValues});
 }

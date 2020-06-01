@@ -1,9 +1,13 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
     name: String,
     email: String,
-    parkVisits: String, //! change to Schema once defined
+    parkVisits: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Visit'
+    }],
     badgeCollection: String, //! change to Schema once defined
     googleId: String
 }, {

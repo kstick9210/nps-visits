@@ -1,70 +1,11 @@
 <%- include('./partials/header') %>
 <form class="park-list" action="/new" method="GET">
-    <label for="park-choices"></label>
-    <input list="park-names" id="park-choices" name="park-choices" placeholder="Enter a park name to search (i.e., Yosemite)"/>
-    <datalist id="park-names" size=10>
-        <option value="Acadia"></option>
-        <option value="American Samoa"></option>
-        <option value="Arches"></option>
-        <option value="Badlands"></option>
-        <option value="Big Bend"></option>
-        <option value="Biscayne"></option>
-        <option value="Black Canyon of the Gunnison"></option>
-        <option value="Bryce Canyon"></option>
-        <option value="Canyonlands"></option>
-        <option value="Capitol Reef"></option>
-        <option value="Carlsbad Caverns"></option>
-        <option value="Channel Islands"></option>
-        <option value="Congaree"></option>
-        <option value="Crater Lake"></option>
-        <option value="Cuyahoga Valley"></option>
-        <option value="Death Valley"></option>
-        <option value="Denali"></option>
-        <option value="Dry Tortugas"></option>
-        <option value="Everglades"></option>
-        <option value="Gates of the Arctic"></option>
-        <option value="Gateway Arch"></option>
-        <option value="Glacier"></option>
-        <option value="Glacier Bay"></option>
-        <option value="Grand Canyon"></option>
-        <option value="Grand Teton"></option>
-        <option value="Great Basin"></option>
-        <option value="Great Sand Dunes"></option>
-        <option value="Great Smoky Mountains"></option>
-        <option value="Guadalupe Mountains"></option>
-        <option value="Haleakalā"></option>
-        <option value="Hawai'i Volcanoes"></option>
-        <option value="Hot Springs"></option>
-        <option value="Indiana Dunes"></option>
-        <option value="Isle Royale"></option>
-        <option value="Joshua Tree"></option>
-        <option value="Katmai"></option>
-        <option value="Kenai Fjords"></option>
-        <option value="Kings Canyon"></option>
-        <option value="Kobuk Valley"></option>
-        <option value="Lake Clark"></option>
-        <option value="Lassen Volcanic"></option>
-        <option value="Mammoth Cave"></option>
-        <option value="Mesa Verde"></option>
-        <option value="Mount Rainier"></option>
-        <option value="North Cascades"></option>
-        <option value="Olympic"></option>
-        <option value="Petrified Forest"></option>
-        <option value="Pinnacles"></option>
-        <option value="Redwood"></option>
-        <option value="Rocky Mountain"></option>
-        <option value="Saguaro"></option>
-        <option value="Sequoia"></option>
-        <option value="Shenandoah"></option>
-        <option value="Theodore Roosevelt"></option>
-        <option value="Virgin Islands"></option>
-        <option value="Voyageurs"></option>
-        <option value="White Sands"></option>
-        <option value="Wind Cave"></option>
-        <option value="Wrangell-St. Elias"></option>
-        <option value="Yellowstone"></option>
-        <option value="Yosemite"></option>
-        <option value="Zion"></option>
+    <label for="parkName"></label>
+    <input list="park-names" id="park-choices" name="parkName" placeholder="Enter a park name to search (i.e., Yosemite)"/>
+    <datalist id="park-names">
+        <% parkName.forEach(function(park) { %>
+            <option><%= park %></option>
+        <% }); %>
     </datalist>
     <button type="submit">Add</button>
 </form>
