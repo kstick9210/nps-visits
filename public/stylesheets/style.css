@@ -28,15 +28,21 @@ nav {
 .loginout {
   text-decoration: none;
   color: white;
-  
 }
+
 main {
+  display: inherit;
   justify-items: center;
+  align-items: center;
+  grid-template-rows: 10vh 10vh;
 }
 
 #blurb {
+  display: inherit;
   width: 60vw;
+  height: 7vh;
   text-align: center;
+  line-height: 150%;
   border: thick double;
 }
 
@@ -54,7 +60,15 @@ footer > p > a {
   padding-top: 3px;
 }
 
-#park-choices, button {
+#newVisit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  padding-top: 5vh;
+}
+
+#park-choices, #date, button {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
 }
@@ -63,21 +77,27 @@ footer > p > a {
   width: 350px;
 }
 
+#date { margin: 5px 0; }
+
 button {
   background-color: rgb(79, 92, 46);
   color: white;
 }
 
 @media only screen and (min-width: 768px) {
+  #logo { height: 70px;}
+
+  #large { font-size: 60px;}
+
+  .loginout { font-size: 20px;}
+
+  #blurb { height: 4vh; }
+
   footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  #logo { height: 70px;}
-
-  #large { font-size: 60px;}
-
-  .loginout { font-size: 20px;}
+  #disclaim { text-align: right;}
 }

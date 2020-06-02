@@ -1,4 +1,28 @@
 <%- include('./partials/header') %>
-<div>Here are all your park visits.</div>
+<main>
+<% if (user.parkVisits.length) { %>
+    <div>Here are all your National Park visits.</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Date of Visit</th>
+                <th>Park Visited</th>
+                <th>Junior Ranger Badge Obtained?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <% user.parkVisits.forEach(visit => { %>
+                <td><%= visit.date %></td>
+                <td><%= visit.parkName %></td>
+                <td><%= visit.jrRangerBadge %></td>
+                <% }); %>
+            </tr>
+        </tbody>
+    </table>
+<% } else { %>
+    <div >You haven't added any visits yet.</div>
+<% } %>
 <a href="/visits/new">Add a new visit</a>
+</main>
 <%- include('./partials/footer') %>

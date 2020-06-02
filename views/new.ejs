@@ -1,12 +1,16 @@
 <%- include('./partials/header') %>
-<form class="park-list" action="/new" method="GET">
-    <label for="parkName"></label>
-    <input list="park-names" id="park-choices" name="parkName" placeholder="Enter a park name to search (i.e., Yosemite)"/>
-    <datalist id="park-names">
+<form id="newVisit" action="/visits" method="POST">
+    <label for="parkName">Park:
+        <select name="parkName" id="park-choices" required>
+            <option selected disabled>--Select a park from the list--</option>
         <% parkName.forEach(function(park) { %>
             <option><%= park %></option>
         <% }); %>
-    </datalist>
+        </select>
+    </label>
+    <label for="date">Date Visted: 
+        <input id="date" type="date" name="date" required>
+    </label>
     <button type="submit">Add</button>
 </form>
 <%- include('./partials/footer') %>
