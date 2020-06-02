@@ -79,6 +79,11 @@ footer > p > a {
 
 #date { margin: 5px 0; }
 
+.page-title {
+  font-family: 'Acme', sans-serif;
+  font-size: 25px;
+}
+
 button {
   background-color: rgb(79, 92, 46);
   color: white;
@@ -92,6 +97,8 @@ button {
   .loginout { font-size: 20px;}
 
   #blurb { height: 4vh; }
+
+  .page-title { font-size: 35px;}
 
   footer {
     display: flex;

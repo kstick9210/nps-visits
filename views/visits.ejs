@@ -1,7 +1,7 @@
 <%- include('./partials/header') %>
 <main>
 <% if (user.parkVisits.length) { %>
-    <div>Here are all your National Park visits.</div>
+    <div class="page-title"><%= user.name %>'s National Park Visits.</div>
     <table>
         <thead>
             <tr>
@@ -11,9 +11,9 @@
             </tr>
         </thead>
         <tbody>
+            <% user.parkVisits.map(visit => { %>
             <tr>
-                <% user.parkVisits.forEach(visit => { %>
-                <td><%= visit.date %></td>
+                <td><%= visit.date.toLocaleDateString() %></td>
                 <td><%= visit.parkName %></td>
                 <td><%= visit.jrRangerBadge %></td>
                 <% }); %>
