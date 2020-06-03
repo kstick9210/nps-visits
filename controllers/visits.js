@@ -56,13 +56,17 @@ function show(req, res) {
 }
 
 function deleteVisit(req, res) {
-    Visit.findByIdAndRemove(req.params.id, function(err) {
-        if (err) {
-            console.log('error: ', err); //! console log
-            res.redirect(`/visits/${req.params.id}`);
-        }
-    });
-    res.redirect('/visits');
+    User.findOne({'parkVisits': {'_id': req.params.id}}, function(err, result) { // find user who created the visit
+        console.log('User.findOne result: ', result._id); //! console log
+        if (!result._id.equals(req.user._id)) return res.redirect(`/visits/${req.params.id}`); // return to show view if current user != owner of visit
+        Visit.findByIdAndRemove(req.params.id, function(err) {
+            if (err) {
+                console.log('error: ', err); //! console log
+                res.redirect(`/visits/${req.params.id}`);
+            }
+        });
+        res.redirect('/visits');
+    })
 }
 
 function edit(req, res) {
@@ -78,17 +82,21 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-    const d = req.body.date;
-    req.body.date = `${d.substr(5, 2)}-${d.substr(8, 2)}-${d.substr(0, 4)}`;
-    user = req.user;
-    Visit.findById(req.params.id, function(err, visit) {
-        visit.date = req.body.date;
-        visit.save(function(err) {
-            if (err) {
-                console.log('error: ', err); //! console log
-                res.redirect(`/visits/${req.params.id}/edit`);
-            }
-            res.redirect(`/visits/${req.params.id}`);
+    User.findOne({'parkVisits': {'_id': req.params.id}}, function(err, result) {
+        console.log('User.findOne result: ', result._id); //! console log
+        if (!result._id.equals(req.user._id)) return res.redirect(`/visits/${req.params.id}`);
+        const d = req.body.date;
+        req.body.date = `${d.substr(5, 2)}-${d.substr(8, 2)}-${d.substr(0, 4)}`;
+        user = req.user;
+        Visit.findById(req.params.id, function(err, visit) {
+            visit.date = req.body.date;
+            visit.save(function(err) {
+                if (err) {
+                    console.log('error: ', err); //! console log
+                    res.redirect(`/visits/${req.params.id}/edit`);
+                }
+                res.redirect(`/visits/${req.params.id}`);
+            })
         })
     })
 }
