@@ -50,6 +50,11 @@ main {
   align-items: start;
 }
 
+#visit-show {
+  grid-template-rows: 8vh 25vh 8vh 6vh;
+  align-items: start;
+}
+
 #blurb {
   display: inherit;
   width: 60vw;
@@ -70,8 +75,6 @@ a {
   color: inherit;
   font-weight: 900;
 }
-
-a:hover, .link:hover { transform: scale(1.2); }
 
 .link { 
   font-family: 'Spartan', sans-serif;
@@ -133,15 +136,17 @@ button { color: white;}
 .delete { background-color: rgb(187, 59, 43); }
 
 @media only screen and (min-width: 768px) {
-  #logo { height: 70px;}
+  #logo { height: 70px; }
 
-  #large { font-size: 60px;}
+  #large { font-size: 60px; }
 
-  .loginout { font-size: 20px;}
+  .loginout { font-size: 20px; }
+
+  a:hover, .link:hover { transform: scale(1.2); }
 
   #blurb { max-height: 4vh; }
 
-  .page-title { font-size: 35px;}
+  .page-title { font-size: 35px; }
 
   table { font-size: larger; }
 
@@ -151,5 +156,5 @@ button { color: white;}
     align-items: center;
   }
 
-  #disclaim { text-align: right;}
+  #disclaim { text-align: right; }
 }

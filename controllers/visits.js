@@ -53,6 +53,11 @@ function show(req, res) {
 }
 
 function deleteVisit(req, res) {
-    // User.parkVisits.findByIdAndRemove(req.params.id); //!fix this
+    Visit.findByIdAndRemove(req.params.id, function(err) {
+        if (err) {
+            console.log('error: ', err); //! console log
+            res.redirect(`/visits/${req.params.id}`);
+        }
+    });
     res.redirect('/visits');
 }

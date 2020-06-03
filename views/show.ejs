@@ -3,16 +3,19 @@
     <div class="page-title">
         <%= user.name %>'s Visit to <%= visit.parkName %> National Park
     </div>
-    <p>
-        Date Visited: <%= visit.date.toLocaleDateString() %><br>
-        Junior Ranger Badge <%= visit.jrRangerBadge ? 'Obtained' : 'Not Obtained' %><br>
-        <% if (visit.jrRangerBadge) { %>
-            Date Badge Obtained: <%= visit.jrRangerBadge.date.toLocaleDateString() %><br><br>
-        <% } %>
-        <form action="/visits/<%= visit._id %>?_method=DELETE" method="POST">
-            <button class="delete" type="submit">Delete This Visit</button>
-        </form>
-    </p>
+    <div>
+        <p>
+            Date Visited: <%= visit.date.toLocaleDateString() %><br>
+            Junior Ranger Badge <%= visit.jrRangerBadge ? 'Obtained' : 'Not Obtained' %><br>
+            <% if (visit.jrRangerBadge) { %>
+                Date Badge Obtained: <%= visit.jrRangerBadge.date.toLocaleDateString() %>
+            <% } %><br><br>
+            <a class="link" href="/">Edit This Visit</a>
+        </p>
+    </div>
+    <form action="/visits/<%= visit._id %>?_method=DELETE" method="POST">
+        <button class="delete" type="submit">Delete This Visit</button>
+    </form>
     <a class="link" href="/visits">Return to My Visits List</a>
 </main>
 <%- include('./partials/footer') %>
