@@ -2,13 +2,6 @@
 <main>
 <div class="page-title"><%= title %> on <%= visit.date.toLocaleDateString() %></div>
 <form id="newVisit" action="/visits/<%= visit._id %>?_method=PUT" method="POST">
-    <label for="parkName">Change Park:
-        <select name="parkName" id="park-choices" required>
-        <% parkName.forEach(function(park) { %>
-            <option><%= park %></option>
-        <% }); %>
-        </select>
-    </label>
     <label for="date">Change Date of Visit:
         <input id="date" 
         type="date" 

@@ -78,5 +78,17 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-    
+    const d = req.body.date;
+    req.body.date = `${d.substr(5, 2)}-${d.substr(8, 2)}-${d.substr(0, 4)}`;
+    user = req.user;
+    Visit.findById(req.params.id, function(err, visit) {
+        visit.date = req.body.date;
+        visit.save(function(err) {
+            if (err) {
+                console.log('error: ', err); //! console log
+                res.redirect(`/visits/${req.params.id}/edit`);
+            }
+            res.redirect(`/visits/${req.params.id}`);
+        })
+    })
 }
