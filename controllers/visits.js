@@ -6,7 +6,9 @@ module.exports = {
     new: newVisit,
     create,
     show,
-    delete: deleteVisit
+    delete: deleteVisit,
+    edit,
+    update
 };
 
 function index(req, res) {
@@ -48,7 +50,8 @@ function show(req, res) {
         res.render('show', { 
             title: `Visit to ${visit.parkName}`, 
             visit,
-            user: req.user});
+            user: req.user
+        });
     });
 }
 
@@ -60,4 +63,20 @@ function deleteVisit(req, res) {
         }
     });
     res.redirect('/visits');
+}
+
+function edit(req, res) {
+    Visit.findById(req.params.id, function(err, visit) {
+        console.log(visit); //! console log
+        res.render('edit', {
+            title: `Edit Visit to ${visit.parkName}`,
+            visit,
+            user: req.user,
+            parkName: Visit.schema.path('parkName').enumValues
+        });
+    });
+}
+
+function update(req, res) {
+    
 }

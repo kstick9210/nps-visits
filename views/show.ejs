@@ -1,7 +1,7 @@
 <%- include('./partials/header') %>
 <main id="visit-show">
     <div class="page-title">
-        <%= user.name %>'s Visit to <%= visit.parkName %> National Park
+        <%= user.name %>'s <%= title %> National Park
     </div>
     <div>
         <p>
@@ -10,9 +10,9 @@
             <% if (visit.jrRangerBadge) { %>
                 Date Badge Obtained: <%= visit.jrRangerBadge.date.toLocaleDateString() %>
             <% } %><br><br>
-            <a class="link" href="/">Edit This Visit</a>
         </p>
     </div>
+    <a id="edit" href="/visits/<%= visit._id %>/edit">Edit This Visit</a>
     <form action="/visits/<%= visit._id %>?_method=DELETE" method="POST">
         <button class="delete" type="submit">Delete This Visit</button>
     </form>

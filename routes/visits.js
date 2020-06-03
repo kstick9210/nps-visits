@@ -4,6 +4,8 @@ const visitsCtrl = require('../controllers/visits');
 router.get('/', isLoggedIn, visitsCtrl.index);
 router.get('/new', isLoggedIn, visitsCtrl.new);
 router.get('/:id', isLoggedIn, visitsCtrl.show);
+router.get('/:id/edit', isLoggedIn, visitsCtrl.edit);
+router.put('/:id', isLoggedIn, visitsCtrl.update);
 router.post('/', isLoggedIn, visitsCtrl.create);
 router.delete('/:id', isLoggedIn, visitsCtrl.delete);
 

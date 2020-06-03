@@ -51,7 +51,7 @@ main {
 }
 
 #visit-show {
-  grid-template-rows: 8vh 25vh 8vh 6vh;
+  grid-template-rows: 8vh 25vh 6vh 8vh 6vh;
   align-items: start;
 }
 
@@ -129,9 +129,18 @@ table {
 
 #new-date { margin: 5px 0; }
 
-button { color: white;}
+button { 
+  color: white;
+  cursor: pointer;
+}
 
-.add { background-color: rgb(79, 92, 46); }
+.add, #edit { background-color: rgb(79, 92, 46); }
+
+#edit {
+  color: white;
+  padding: 2px;
+  border: 2px ridge grey;
+}
 
 .delete { background-color: rgb(187, 59, 43); }
 
