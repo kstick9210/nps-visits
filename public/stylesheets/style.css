@@ -21,13 +21,21 @@ nav {
   font-family: 'Acme', sans-serif;
 }
 
-#logo { height: 60px; }
+#npslogo { height: 60px; }
 
 #large { font-size: 40px;}
 
 .loginout {
   text-decoration: none;
   color: white;
+  text-align: right;
+}
+
+.page-title {
+  font-family: 'Acme', sans-serif;
+  font-size: 25px;
+  margin: 5px;
+  text-align: center;
 }
 
 main {
@@ -37,9 +45,15 @@ main {
   grid-template-rows: 10vh 10vh;
 }
 
+#visit-list {
+  grid-template-rows: 8vh 6vh auto;
+  align-items: start;
+}
+
 #blurb {
   display: inherit;
   width: 60vw;
+  max-width: 550px;
   height: 7vh;
   text-align: center;
   line-height: 150%;
@@ -51,8 +65,41 @@ footer {
   font-size: small;
 }
 
-footer > p > a {
+a {
   text-decoration: none;
+  color: inherit;
+  font-weight: 900;
+}
+
+a:hover, .link:hover { transform: scale(1.2); }
+
+.link { 
+  font-family: 'Spartan', sans-serif;
+  font-weight: 620;
+  color: rgb(79, 92, 46);
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 20px 30px;
+}
+
+#park-name {
+  border: 2px dashed black;
+  padding: 20px 8px;
+  text-align: center;
+}
+
+#date {
+  border: 1px solid grey;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: right;
+}
+
+#details {
+  border: thin dashed rgb(79, 92, 46);
+  padding: 2px 2px 0 2px;
 }
 
 .gh { 
@@ -77,17 +124,13 @@ footer > p > a {
   width: 350px;
 }
 
-#date { margin: 5px 0; }
+#new-date { margin: 5px 0; }
 
-.page-title {
-  font-family: 'Acme', sans-serif;
-  font-size: 25px;
-}
+button { color: white;}
 
-button {
-  background-color: rgb(79, 92, 46);
-  color: white;
-}
+.add { background-color: rgb(79, 92, 46); }
+
+.delete { background-color: rgb(187, 59, 43); }
 
 @media only screen and (min-width: 768px) {
   #logo { height: 70px;}
@@ -96,9 +139,11 @@ button {
 
   .loginout { font-size: 20px;}
 
-  #blurb { height: 4vh; }
+  #blurb { max-height: 4vh; }
 
   .page-title { font-size: 35px;}
+
+  table { font-size: larger; }
 
   footer {
     display: flex;

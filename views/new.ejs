@@ -1,16 +1,19 @@
 <%- include('./partials/header') %>
+<main>
+<div class="page-title">Add a New Visit</div>
 <form id="newVisit" action="/visits" method="POST">
-    <label for="parkName">Park:
+    <label for="parkName">Select a Park:
         <select name="parkName" id="park-choices" required>
-            <option selected disabled>--Select a park from the list--</option>
         <% parkName.forEach(function(park) { %>
             <option><%= park %></option>
         <% }); %>
         </select>
     </label>
-    <label for="date">Date Visted: 
+    <label for="new-date">Date Visted: 
         <input id="date" type="date" name="date" required>
     </label>
-    <button type="submit">Add</button>
+    <button class="add" type="submit">Add</button>
 </form>
+<a class="link" href="/visits">Return to My Visits List</a>
+</main>
 <%- include('./partials/footer') %>

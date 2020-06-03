@@ -1,28 +1,24 @@
 <%- include('./partials/header') %>
-<main>
+<main id="visit-list">
 <% if (user.parkVisits.length) { %>
-    <div class="page-title"><%= user.name %>'s National Park Visits.</div>
+    <div class="page-title"><%= user.name %>'s National Park Visits</div>
+    <a class="link" href="/visits/new">Add a new visit</a>
     <table>
-        <thead>
-            <tr>
-                <th>Date of Visit</th>
-                <th>Park Visited</th>
-                <th>Junior Ranger Badge Obtained?</th>
-            </tr>
-        </thead>
         <tbody>
             <% user.parkVisits.map(visit => { %>
             <tr>
-                <td><%= visit.date.toLocaleDateString() %></td>
-                <td><%= visit.parkName %></td>
-                <td><%= visit.jrRangerBadge %></td>
-                <% }); %>
+                <td id="park-name"><%= visit.parkName %> National Park</td>
+                <td id="date">
+                    Date Visited: <%= visit.date.toLocaleDateString() %><br><br>
+                    <a class="link" id="details" href="/visits/<%= visit._id %>">Details</a>
+                </td>
             </tr>
+            <% }); %>
         </tbody>
     </table>
 <% } else { %>
     <div >You haven't added any visits yet.</div>
+    <a class="link" href="/visits/new">Add a new visit</a>
 <% } %>
-<a href="/visits/new">Add a new visit</a>
 </main>
 <%- include('./partials/footer') %>

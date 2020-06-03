@@ -3,7 +3,9 @@ const visitsCtrl = require('../controllers/visits');
 
 router.get('/', isLoggedIn, visitsCtrl.index);
 router.get('/new', isLoggedIn, visitsCtrl.new);
+router.get('/:id', isLoggedIn, visitsCtrl.show);
 router.post('/', isLoggedIn, visitsCtrl.create);
+router.delete('/:id', isLoggedIn, visitsCtrl.delete);
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {

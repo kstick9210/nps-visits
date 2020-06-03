@@ -4,13 +4,12 @@ const Visit = require('../models/visit');
 module.exports = {
     index,
     new: newVisit,
-    create
+    create,
+    show,
+    delete: deleteVisit
 };
 
 function index(req, res) {
-    // Visit.find({}, function(err, visits) {
-    //     console.log('req.user: ', req.user) //!console log
-    // });
     User.findById(req.user).populate('parkVisits').exec(function(err, user) {
         res.render('visits', {title: `${user.name}'s Visits`, user});
     })
@@ -42,4 +41,18 @@ function create(req, res) {
         })
         res.redirect('/visits');
     })    
+}
+
+function show(req, res) {
+    Visit.findById(req.params.id, function(err, visit) {
+        res.render('show', { 
+            title: `Visit to ${visit.parkName}`, 
+            visit,
+            user: req.user});
+    });
+}
+
+function deleteVisit(req, res) {
+    // User.parkVisits.findByIdAndRemove(req.params.id); //!fix this
+    res.redirect('/visits');
 }
