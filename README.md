@@ -15,4 +15,7 @@ This app is a place to keep track of which National Parks you have visted and th
 
 # Getting Started
 [Trello Board](https://trello.com/b/J6GvXYVN/project-2-nps-visits-tracker)
+
+[Click here to launch the app](https://nps-visits.herokuapp.com/)
+
 # Next Steps
