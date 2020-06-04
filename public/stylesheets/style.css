@@ -134,12 +134,13 @@ button {
   cursor: pointer;
 }
 
-.add, #edit { background-color: rgb(79, 92, 46); }
+.add, .edit { background-color: rgb(79, 92, 46); }
 
-#edit {
+.edit {
   color: white;
   padding: 2px;
   border: 2px ridge grey;
+  margin: 5px;
 }
 
 .delete { background-color: rgb(187, 59, 43); }
@@ -151,7 +152,7 @@ button {
 
   .loginout { font-size: 20px; }
 
-  a:hover, .link:hover { transform: scale(1.2); }
+  .link:hover { transform: scale(1.2); }
 
   #blurb { max-height: 4vh; }
 

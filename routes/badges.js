@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const badgesCtrl = require('../controllers/badges');
 
+router.get('/', isLoggedIn, badgesCtrl.index);
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
