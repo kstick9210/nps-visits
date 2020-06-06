@@ -12,7 +12,8 @@ module.exports = {
 };
 
 function index(req, res) {
-    User.findById(req.user).populate('parkVisits').exec(function(err, user) {
+    req.user.populate('parkVisits').execPopulate(function(err, user) {
+        console.log('user: ', user); //! console log
         res.render('visits', {title: `${user.name}'s Visits`, user});
     })
 }
@@ -47,6 +48,7 @@ function create(req, res) {
 
 function show(req, res) {
     Visit.findById(req.params.id, function(err, visit) {
+        console.log('visit: ', visit); //! console log
         res.render('show', { 
             title: `Visit to ${visit.parkName}`, 
             visit,

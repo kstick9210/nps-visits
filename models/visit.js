@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const jrRangerBadgeSchema = new Schema({
-    date: Date,
-    parkName: String
-})
-
 const visitSchema = new Schema({
     date: Date,
-    jrRangerBadge: jrRangerBadgeSchema,
+    jrRangerBadge: [{
+        type: Schema.Types.ObjectId,
+        ref: 'JrRangerBadge'
+    }],
     parkName: {
         type: String,
         enum: [

@@ -6,15 +6,23 @@
     <div>
         <p>
             Date Visited: <%= visit.date.toLocaleDateString() %><br>
-            Junior Ranger Badge <%= visit.jrRangerBadge ? 'Obtained' : 'Not Obtained' %><br>
-            <% if (visit.jrRangerBadge) { %>
-                Date Badge Obtained: <%= visit.jrRangerBadge.date.toLocaleDateString() %>
-            <% } %><br><br>
+            Junior Ranger Badge <%= visit.jrRangerBadge.length ? 'Obtained' : 'Not Obtained' %><br>
+            <% if (visit.jrRangerBadge.length === 0) { %>
+                <form action="/visits/<%= visit._id %>/badge" method="POST">
+                    <label for="date">Date I Obtained Badge: 
+                        <input id="date" 
+                        type="date" 
+                        name="date"
+                        value="<%= visit.date.toISOString().slice(0, 10) %>" 
+                        required>
+                    </label>
+                    <button class="add">Add Badge to Visit</button>
+                </form>
+            <% } %>
         </p>
     </div>
     <div>
         <a class="edit" href="/visits/<%= visit._id %>/edit">Edit This Visit</a>
-        <a class="edit" href="/">Add a Junior Badge to This Visit</a>
     </div>
     <form action="/visits/<%= visit._id %>?_method=DELETE" method="POST">
         <button class="delete" type="submit">Delete This Visit</button>

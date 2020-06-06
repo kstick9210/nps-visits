@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Visit = require('../models/visit');
 
 const userSchema = new Schema({
     name: String,
@@ -9,7 +8,10 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Visit'
     }],
-    badgeCollection: String, //! change to Schema once defined
+    badgeCollection: [{
+        type: Schema.Types.ObjectId,
+        ref: 'JrRangerBadge'
+    }],
     googleId: String
 }, {
     timestamps: true

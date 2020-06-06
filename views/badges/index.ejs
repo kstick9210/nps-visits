@@ -1,28 +1,33 @@
 <%- include('../partials/header') %>
 <main id="badge-list">
-    <% if (user.parkVisits.length === 0) { %>
+    <% if (user.parkVisits) { %>
+        <% if (user.badgeCollection) { %>
+                <div class="page-title"><%= title %></div>
+                <table>
+                    <tbody>
+                        <% user.badgeCollection.map(badge => {%>
+                        <tr>
+                            <td id="park-name"><%= badge.parkName %> National Park</td>
+                            <td id="date">Date Obtained: <%= badge.date.toLocaleDateString() %></td>
+                            <td>
+                                <form action="/badges/<%= badge._id %>?_method=DELETE" method="POST">
+                                    <button class="delete" type="submit">Delete <%= badge.parkName %> Badge</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+                <a class="link" href="/visits">Return to My Visits List</a>
+        <% } else { %>
+            <div class="page-title">You haven't added any badges yet.<br></div>
+            <a class="link" href="/visits">Return to My Visits List</a>
+        <% } %>
+    <% } else { %>
         <div class="page-title">You haven't added any visits yet.<br>
             You can only add badges to existing visits.
         </div>
         <a class="link" href="/visits/new">Add a new visit</a>
-    <%} else if (user.parkVisits.jrRangerBadge) { %>
-            <div class="page-title"><%= title %></div>
-            <table>
-                <tbody>
-                    <% user.parkVisits.forEach(visit => { %>
-                        <% visit.jrRangerBadge.map(badge => {%>
-                        <tr>
-                            <td id="park-name"><%= badge.parkName %> National Park</td>
-                            <td id="date">Date Obtained: <%= badge.date.toLocaleDateString() %></td>
-                        </tr>
-                        <% }); %>
-                    <% }); %>
-                </tbody>
-            </table>
-            <a class="link" href="/visits">Return to My Visits List</a>
-    <% } else { %>
-        <div class="page-title">You haven't added any badges yet.<br></div>
-        <a class="link" href="/visits">Return to My Visits List</a>
     <% } %>
 </main>
 <%- include('../partials/footer') %>
